@@ -1,0 +1,15 @@
+@import "image-carousel";
+
+.mediaContainer
+{
+    margin: 0 auto;
+    max-height: 600px; 
+    max-width: 810px;
+
+    @media (max-width: 768px)
+    {
+        margin: auto;
+        padding: 20px 40px;
+        width: auto;
+    }
+}

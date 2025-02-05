@@ -1,0 +1,41 @@
+.carousel-container-row {
+  overflow: hidden;
+  height: 600px;
+  position: relative;
+}
+
+.carousel-container {
+  overflow: hidden;
+
+  height: 100%; /* Ensure the carousel takes the full height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+
+  position: absolute; /* Position absolutely within the container */
+  left: 0px;
+  top: 0px;
+}
+
+.no-interact {
+  pointer-events: none;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-track.transition {
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  height: 100%;
+}
+
+.carousel-slide * {
+  height: 100%;
+  object-fit: cover;
+}
