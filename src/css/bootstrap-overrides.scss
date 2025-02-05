@@ -1,0 +1,49 @@
+
+
+/* Remove background color */
+.nav-pills .nav-link {
+  background-color: transparent;
+  color: black; /* Default color */
+  transition: color 0.3s ease;
+  appearance: none;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  position: relative;
+
+  @keyframes drawLine { 100% { width: calc(100% - 10px); } }
+
+  &:hover {
+    background-color: transparent;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      bottom: 10px; /* Adjust distance from text */
+      top: 10px; /* Adjust distance from text */
+      width: 0%;
+      background-color: $primary; /* Line color */
+      transition: width 0.3s ease, left 0.3s ease;
+      z-index: -1;
+      animation: drawLine 1s forwards;
+    }
+  }
+  &.active {
+    font-weight: bold; /* Optional: emphasize active link */
+
+    &:hover {
+      background-color: transparent;
+      color: $primary; /* Active color */
+      
+      &::before {
+        background-color: $primary; /* Line color */
+
+        z-index: 0;
+      }
+    }
+  }
+  
+}

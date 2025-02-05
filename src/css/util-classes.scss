@@ -1,0 +1,125 @@
+.top-5 { margin-top:5px; }
+.top-10 { margin-top:10px; }
+.top-15 { margin-top:15px; }
+.top-20 { margin-top:20px; }
+.top-25 { margin-top:25px; }
+.top-30 { margin-top:30px; }
+.top-50 { margin-top:50px; }
+.top-75 { margin-top:75px; }
+.top-100 { margin-top:100px; }
+.top-120 { margin-top:120px; }
+.top-125 { margin-top:125px; }
+.top-150 { margin-top:150px; }
+.top-500 { margin-top:500px; }
+
+.mw-400px { max-width: 400px; }
+.mw-600px { max-width: 600px; }
+.mw-800px { max-width: 800px; }
+.mw-1000px { max-width: 1000px; }
+
+.lt-xy-center {
+    position: absolute;
+    left:50%; 
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.lb-x-center {
+    position: absolute;
+    left: 50%; 
+    bottom: 0;
+    transform: translateX(-50%) translateY(50%);
+}
+.l-x-center {
+    position: absolute;
+    left:50%; 
+    transform: translateX(-50%);
+}
+
+@mixin lazy-placeholer($width, $height) {
+    min-width: #{($height / $width) * 100}vw;
+}
+
+.fl-col-g3 {
+    @extend .d-flex, .flex-column, .gap-3;
+}
+.fl-j-between-al-i-center-g-2 {
+    @extend .d-flex, .justify-content-between, .align-items-center, .gap-2;
+}
+.fl-j-center-al-i-center {
+    @extend .d-flex, .justify-content-center, .align-items-center;
+}
+.fl-col-j-center-al-i-center {
+    @extend .flex-column, .fl-j-center-al-i-center;
+}
+.fl-nowrap {
+    @extend .d-flex, .flex-nowrap;
+}
+
+.mx-autoblock
+{
+    @extend .d-block, .mx-auto;
+}
+.mx-auto-al-i-center
+{
+    @extend .mx-auto, .align-items-center;
+}
+.mx-autoblock-800px {
+    @extend .mt-4, .mx-autoblock, .mw-800px;
+}
+
+.tx-2col-g15
+{
+    columns: 2; 
+    column-gap: 15px;
+}
+
+.freebee-dwnld-btn {
+    @extend .btn, .btn-primary, .l-x-center;
+
+    bottom: 15%;
+}
+
+.kunden-icn {
+    height:80px;
+}
+.w1057xh600 {
+    height:600px;
+    width:1067px;
+}
+.w338xh600 {
+    height:600px;
+    width:338px;
+}
+
+.full-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.gallery-overlay
+{
+    @extend .full-overlay;
+
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: 'flex';
+    flex-direction: 'column'; 
+    align-items: 'center';
+}
+
+.gallery-close-bg
+{
+    @extend .full-overlay;
+}
+
+.custom-column-txt {
+    font-size: 12pt;
+    @include media-breakpoint-between(md, lg) { 
+        font-size: calc(min(14pt, 1.8vw));
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 14pt;
+    }
+}

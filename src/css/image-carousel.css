@@ -1,0 +1,186 @@
+:root {
+  --primary: #f4a637;
+}
+
+@media (max-width: 575px) {
+  :root {
+    --menu-width: 0px;
+  }
+}
+
+@media (min-width: 576px) {
+  :root {
+    --menu-width: 211px;
+  }
+}
+
+.pink {
+  --primary: #ff00ff;
+}
+
+.ic-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: calc(var(--height) + 50px);
+}
+
+@media (max-width: 768px) {
+  .ic-carousel-container {
+    height: calc(var(--height) * 0.8 + 50px);
+  }
+}
+
+.ic-carousel-track-container {
+  margin: auto;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: var(--height);
+}
+
+@media (max-width: 768px) {
+  .ic-carousel-track-container {
+    height: calc(var(--height) * 0.8);
+  }
+}
+
+.ic-carousel-track {
+  height: 100%;
+}
+
+.ic-carousel-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: none;
+  padding: 20px;
+}
+
+.ic-carousel-item.active {
+  display: block;
+  transform: translateX(-50%) scale(1);
+  z-index: 2;
+}
+
+.ic-carousel-item.pre-1 {
+  display: block;
+  transform: translateX(-125%) scale(0.75);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.ic-carousel-item.next-1 {
+  display: block;
+  transform: translateX(25%) scale(0.75);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.ic-carousel-item.pre-2 {
+  display: block;
+  transform: translateX(-150%) scale(0.5);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.ic-carousel-item.next-2 {
+  display: block;
+  transform: translateX(50%) scale(0.5);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.ic-carousel-image {
+  max-height: var(--max-height);
+}
+
+@media (max-width: 768px) {
+  .ic-carousel-image {
+    max-height: calc(var(--max-height) * 0.8);
+  }
+}
+
+/* Navigation buttons */
+.ic-carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.ic-carousel-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.ic-carousel-button.prev {
+  left: var(--arrow-position);
+}
+
+.ic-carousel-button.next {
+  right: var(--arrow-position);
+}
+
+@media (max-width: 768px) {
+  .ic-carousel-button {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
+
+/* Improved indicators */
+.ic-carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.ic-indicators-container {
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.ic-indicator {
+  padding: 0;
+  width: 8px;
+  height: 8px;
+  border: 2px solid rgba(244, 166, 55, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ic-indicator.active {
+  background: rgba(244, 166, 55, 0.9);
+  transform: scale(1.2);
+}
+
+.ic-indicator:hover {
+  background: rgba(244, 166, 55, 0.6);
+}
+
+@media (max-width: 768px) {
+  .ic-indicator {
+    width: 6px;
+    height: 6px;
+  }
+}

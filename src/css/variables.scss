@@ -1,0 +1,18 @@
+
+$primary: #f4a637;
+$light: #f2f2e9;
+
+:root {
+    --primary: #f4a637;
+    @media (max-width: 575px)
+    {
+        --menu-width: 0px;
+    }
+    @media (min-width: 576px)
+    {
+        --menu-width: 211px;
+    }
+}
+.pink {
+    --primary: #ff00ff;
+}

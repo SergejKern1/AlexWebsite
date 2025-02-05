@@ -1,0 +1,46 @@
+.linkedin-btn, .mail-btn, .inst-btn, .behance-btn {
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding: 0;
+  margin: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+.linkedin-btn a, .mail-btn a, .inst-btn a, .behance-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.behance-btn {
+  background-image: url("/icons/behance.svg");
+}
+
+.behance-btn:hover {
+  background-image: url("/icons/behance-hover.svg");
+}
+
+.inst-btn {
+  background-image: url("/icons/instagram.svg");
+}
+
+.inst-btn:hover {
+  background-image: url("/icons/instgram-hover.svg");
+}
+
+.mail-btn {
+  background-image: url("/icons/mail.svg");
+}
+
+.mail-btn:hover {
+  background-image: url("/icons/mail-hover.svg");
+}
+
+.linkedin-btn {
+  background-image: url("/icons/linkedin.svg");
+}
+
+.linkedin-btn:hover {
+  background-image: url("/icons/linkedin-hover.svg");
+}

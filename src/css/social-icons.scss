@@ -1,0 +1,48 @@
+
+%social-icon {
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding: 0;
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.behance-btn {
+    @extend %social-icon;
+
+    background-image: url('/icons/behance.svg');
+    &:hover {
+        background-image: url('/icons/behance-hover.svg');
+    }
+}
+.inst-btn{
+    @extend %social-icon;
+
+    background-image: url('/icons/instagram.svg');
+    &:hover {
+        background-image: url('/icons/instgram-hover.svg');
+    }
+}
+.mail-btn{
+    @extend %social-icon;
+
+    background-image: url('/icons/mail.svg');
+    &:hover {
+        background-image: url('/icons/mail-hover.svg');
+    }
+}
+.linkedin-btn{
+    @extend %social-icon;
+
+    background-image: url('/icons/linkedin.svg');
+    &:hover {
+        background-image: url('/icons/linkedin-hover.svg');
+    }
+}

@@ -1,0 +1,58 @@
+.col-primary{
+    color: var(--primary);
+}
+.title-text {
+  font-size: 3rem;           /* Adjust the font size as needed */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary);       /* Makes the inside of the text transparent */
+  text-align: right;       /* Optional: Align text */
+  margin-bottom: -0.5rem;
+  line-height: 2.5rem;
+}
+.subtitle-text {
+  position: relative; /* Required for positioning the square relative to this element */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;           /* Adjust the font size as needed */
+  font-weight: 800;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+  color: transparent;       /* Makes the inside of the text transparent */
+  -webkit-text-stroke: 1px var(--primary); /* Adds the outline; adjust width and color */
+  text-align: right;       /* Optional: Align text */
+  margin-top: 5px;
+  margin-bottom: 25px;
+
+  &::after{
+    content: ""; /* Makes the pseudo-element renderable */
+    position: absolute; /* Position relative to `.my-element` */
+    width: 20px; /* Square width */
+    height: 20px; /* Square height */
+    background-color: var(--primary); /* Square color */
+    top: 100%; /* Position the square below the element */
+    right: -30px; /* Align square to the left of the element */
+    margin-top: -10px; /* Add spacing between the element and the square */
+  }
+}
+.section-title-text {
+  font-size: 2rem;           /* Adjust the font size as needed */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary);       /* Makes the inside of the text transparent */
+  text-align: right;       /* Optional: Align text */
+  margin-bottom: -0.5rem;
+  line-height: 2.5rem;
+}
+.comment-txt {
+  font-size: 10pt;
+}
+
+.img-ovrly-hov-title {
+  font-size: 2vw;
+}
+.img-ovrly-hov-subtitle {
+  font-size: 1.5vw;
+}
+.img-ovrly-hov-txt {
+  font-size: 1vw;
+}
