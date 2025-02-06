@@ -21,7 +21,7 @@ const CorporateDesign: React.FC = () => {
         {src: "CorporateDesign/cover-flyer.jpg", href:"corporate-design/cover-flyer", hoverTitle: "Flyer", hoverSubtitle:"Handkunstwerk", hoverText: "Jin Shin Jyutsu"},
       ];
   return (
-    <div>
+    <div className="overflow-hidden">
       <ImageGrid colClass='col-4 p-0' gridItems={images}></ImageGrid>
     </div>
   );

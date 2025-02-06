@@ -24,7 +24,7 @@ const PrivacyPolicy: React.FC = () => {
     ))
   }
   return (
-    <div >
+    <div className="overflow-hidden">
         <Container>
           <Title>Datenschutzbestimmungen</Title>
           <Subtitle>Privacy Policy</Subtitle>

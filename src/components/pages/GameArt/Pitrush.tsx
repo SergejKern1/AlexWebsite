@@ -5,7 +5,7 @@ import { loremIpsumText } from "../../util/loremIpsum";
 
 const Pitrush: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <Container>
           <Title>Pitrush</Title>
           <Subtitle>The Tribe (HAW)</Subtitle>

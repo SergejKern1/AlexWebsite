@@ -3,7 +3,7 @@ import {Title, Subtitle} from "../../../util/class-utils.tsx";
 
 const USWahl: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <div id="01">
             Lorem ipsum
         </div>

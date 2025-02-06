@@ -44,8 +44,8 @@ const Illustration: React.FC = () => {
       {src: "Illustrations/shakti.png"},
     ];
     const row09 = [
-      {src: "Illustrations/Littledemon-01.png"},
-      {src: "Illustrations/littledemons-02.png"},
+      {src: "Illustrations/littledemons-fish.jpg"},
+      {src: "Illustrations/littledemons-02.jpg"},
     ];
 
   const allRows = row01.concat(row02, row03, row04, row05, row06, row07, row08, row09);
@@ -62,7 +62,7 @@ const Illustration: React.FC = () => {
   };
 
   return (
-    <div className=''>
+    <div className="overflow-hidden">
       {showGallery ? (
         <div className="gallery-overlay">
             <ImageCarousel id="Sketchbook" imgs={allRows} 

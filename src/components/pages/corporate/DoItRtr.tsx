@@ -6,7 +6,7 @@ import ImageCarousel from "../../ImageCarousel.tsx";
 
 const DoItRtr: React.FC = () => {
   return (
-    <div >
+    <div className="overflow-hidden">
       <Image fluid className="w-100" src="/CorporateDesign/DoItRtr/RetroSound_header.png" />
       <Container>
         <Title>Do the msc & sfx</Title>

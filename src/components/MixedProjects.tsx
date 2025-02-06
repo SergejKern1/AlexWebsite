@@ -6,7 +6,7 @@ import GameArt from './carousels/GameArt';
 
 const MixedProjects: React.FC = () => {
     return (
-        <div> 
+        <div className="overflow-hidden"> 
             <CorporateDesign /> 
             <MotionDesign /> 
             <Illustration /> 

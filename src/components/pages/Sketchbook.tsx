@@ -54,7 +54,7 @@ const Sketchbook: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="overflow-hidden">
         {showGallery ? (
           <div className='gallery-overlay' >
               <ImageCarousel id="Sketchbook" imgs={allRows} 

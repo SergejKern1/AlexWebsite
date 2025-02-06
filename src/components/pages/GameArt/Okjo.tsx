@@ -5,7 +5,7 @@ import { loremIpsumText } from "../../util/loremIpsum";
 
 const Okjo: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <Container>
           <Title>Okjo</Title>
           <Subtitle>Mindsprout</Subtitle>

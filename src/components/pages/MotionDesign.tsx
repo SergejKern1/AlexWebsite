@@ -3,9 +3,6 @@ import {Container, Row, Col, Button, Image} from "react-bootstrap";
 
 import Grid from '../Grid';
 
-import LandscapeIcon from '../svg/Landscape';
-import PortraitIcon from '../svg/Portrait';
-
 const enum Format {
     Landscape,
     Portrait,
@@ -19,18 +16,20 @@ const MotionDesign: React.FC = () => {
         return "d-block";
     else return "d-none";
   }
-  const getColor=(expected: Format)=>{
-    const rootStyle = getComputedStyle(document.documentElement);
-    if (format===expected)
-        return rootStyle.getPropertyValue('--primary').trim();
-    else return "#000000";
+  const landscapeSrc=()=>{
+    if (format===Format.Landscape)
+        return "/icons/landscape-active.svg";
+    return "/icons/landscape.svg";
   }
-
+  const portraitSrc=()=>{
+    if (format===Format.Portrait)
+        return "/icons/portrait-active.svg";
+    return "/icons/portrait.svg";
+  }
   return (
-    <div>
+    <div className="overflow-hidden">
         <div className="fl-j-center-al-i-center" style={{ color: "white" }} >
             <div
-                className={`btn btn-light`}
                 onClick={() => setFormat(Format.Landscape)}
                 style={{
                     width: "65px",
@@ -40,10 +39,9 @@ const MotionDesign: React.FC = () => {
                     justifyContent: "center", // Center horizontally
                 }}
             >
-                {LandscapeIcon(getColor(Format.Landscape), "40px", "4")}
+                <img src={landscapeSrc()} />
             </div>
             <div
-                className={`btn btn-light`}
                 onClick={() => setFormat(Format.Portrait)}
                 style={{
                     width: "65px",
@@ -52,7 +50,7 @@ const MotionDesign: React.FC = () => {
                     alignItems: "center", // Center vertically
                     justifyContent: "center", // Center horizontally
                 }} >
-                {PortraitIcon(getColor(Format.Portrait), "40px", "4")}
+                <img src={portraitSrc()} />
             </div>
         </div>
 
@@ -95,9 +93,12 @@ const MotionDesign: React.FC = () => {
         </Grid>
 
         <Grid containerClass={`m-2 ${getDisplayClass(Format.Portrait)}`} rowClass='row g-2' elementClass='col-6 col-md-4 col-lg-3'>
-            <video className='img-fluid' autoPlay loop={true} muted={true}>
-                <source src="/Motion/Machloket-Intro_1.mp4" type="video/webm" /> Your browser does not support the video tag.
-            </video>
+            <a className='position-relative'>
+                <video className='img-fluid' autoPlay loop={true} muted={true}>
+                    <source src="/Motion/Machloket-Intro_1.mp4" type="video/webm" /> Your browser does not support the video tag.
+                </video>
+                <Image className="position-absolute" src='mehr-dazu-inactive.png' style={{width:"75px", bottom:"0", right:"0"}} />
+            </a>
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/animedetektei.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>

@@ -5,7 +5,7 @@ import { loremIpsumText } from "../../util/loremIpsum";
 
 const IntoTheCold: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <Container>
           <Title>Into The Cold</Title>
           <Subtitle>Mooneye Studios</Subtitle>

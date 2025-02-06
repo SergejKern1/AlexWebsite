@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { lerp, clamp01 } from "../util/math-ext";
+import {Image} from "react-bootstrap";
 
 import "./../css/infinite-carousel.scss"; // Create this file for the CSS
 
@@ -371,7 +372,12 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
   const extendedChildren = childrenArray.concat(childrenArray).concat(childrenArray);
 
   return (
-    <div className="carousel-container" ref={containerRef} >
+    <div className="carousel-container position-relative" ref={containerRef} >
+      {isHover.current 
+        ? (<Image className="position-absolute" 
+            style={{width:"50px", left:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
+            src="icons/arrow-left.svg" />)
+        : (null)}
       <div
         className={`carousel-track no-interact`}
         ref={trackRef}
@@ -386,7 +392,11 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
           </div>
         ))}
       </div>
-
+      {isHover.current 
+        ? (<Image className="position-absolute" 
+          style={{width:"50px", right:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
+          src="icons/arrow-right.svg" />)
+        : (null)}
     </div>
   );
 };
