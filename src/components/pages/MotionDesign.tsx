@@ -19,18 +19,22 @@ const MotionDesign: React.FC = () => {
         return "d-block";
     else return "d-none";
   }
-  const getColor=(expected: Format)=>{
-    const rootStyle = getComputedStyle(document.documentElement);
+  const getBtnStyleClass=(expected: Format)=>{
     if (format===expected)
-        return rootStyle.getPropertyValue('--primary').trim();
-    else return "#000000";
+        return "btn btn-primary";
+    else return "btn btn-light";
+  }
+  const getColor=(expected: Format)=>{
+    if (format===expected)
+        return "#ffffff";
+    else return "#777777";
   }
 
   return (
     <div>
         <div className="fl-j-center-al-i-center" style={{ color: "white" }} >
             <div
-                className={`btn btn-light`}
+                className={getBtnStyleClass(Format.Landscape)}
                 onClick={() => setFormat(Format.Landscape)}
                 style={{
                     width: "65px",
@@ -40,10 +44,10 @@ const MotionDesign: React.FC = () => {
                     justifyContent: "center", // Center horizontally
                 }}
             >
-                {LandscapeIcon(getColor(Format.Landscape), "40px", "4")}
+                {LandscapeIcon(getColor(Format.Landscape), "40px", "20")}
             </div>
             <div
-                className={`btn btn-light`}
+                className={getBtnStyleClass(Format.Portrait)}
                 onClick={() => setFormat(Format.Portrait)}
                 style={{
                     width: "65px",
@@ -52,7 +56,7 @@ const MotionDesign: React.FC = () => {
                     alignItems: "center", // Center vertically
                     justifyContent: "center", // Center horizontally
                 }} >
-                {PortraitIcon(getColor(Format.Portrait), "40px", "4")}
+                {PortraitIcon(getColor(Format.Portrait), "40px", "20")}
             </div>
         </div>
 
