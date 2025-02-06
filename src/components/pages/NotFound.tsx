@@ -1,6 +1,6 @@
 const NotFound: React.FC = () => {
   return (
-    <div >
+    <div className="overflow-hidden">
         Not Found
     </div>
   );

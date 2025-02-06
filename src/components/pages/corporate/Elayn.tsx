@@ -6,7 +6,7 @@ import InfiniteCarousel from "../../InfiniteCarousel";
 
 const Elayn: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <div id="from-heart-to-heart">
             <div style={{minHeight: '18.45vw'}}> { /* img-height / width x 100 */ } 
                 <Image fluid src="/CorporateDesign/elayn/Banner_Bandcamp.jpg" style={{width: '100%'}} loading="lazy"/>

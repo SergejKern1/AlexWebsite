@@ -8,7 +8,7 @@ const GameArt: React.FC = () => {
     {src: "/GameArt/Okjo_thumbnail-768x768.jpg", href:"game-art/okjo", hoverTitle: "Okjo", hoverSubtitle: "Mindsprout Games", hoverText: ""},
   ];
   return (
-    <div>
+    <div className="overflow-hidden">
       <ImageGrid colClass='col-4 p-0' gridItems={images}></ImageGrid>
     </div>
   );

@@ -9,7 +9,7 @@ const Flyer: React.FC = () => {
   });
   
   return (
-    <div>
+    <div className="overflow-hidden">
         <div style={lazyPlaceholder(1456, 320)}> { /* img-height / width x 100 */ } 
           <Image className="w-100" src="/CorporateDesign/Flyer/header.png" loading="lazy" />
         </div>

@@ -8,7 +8,7 @@ const freebeeImgs = [
 ];
 
   return (
-    <div >
+    <div className="overflow-hidden">
       <ImageRow rowItems={freebeeImgs}>
         <div className="position-relative">
           <Image fluid src="freebees/dungiverse-boy.jpg" />

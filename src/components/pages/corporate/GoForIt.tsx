@@ -12,9 +12,9 @@ const GoForIt: React.FC = () => {
         {src: "/CorporateDesign/GoForIt/goforit-mobile04.png", alt: ""}, 
     ]
   return (
-    <div>
-        <Image className="w-100" fluid src="/CorporateDesign/GoForIt/goforit_banner.png" />
-        <Container className="overflow-hidden">
+    <div className="overflow-hidden">
+        <Image className="w-100 overflow-hidden" fluid src="/CorporateDesign/GoForIt/goforit_banner.png" />
+        <Container>
             <Image fluid className='d-block-mx-auto' src="/CorporateDesign/GoForIt/GoCatch_icons.png" />
 
             <div className="def-block-800">

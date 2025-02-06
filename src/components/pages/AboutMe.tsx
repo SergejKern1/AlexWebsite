@@ -4,7 +4,7 @@ import { Spacing } from "../../util/class-utils";
 
 const AboutMe: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <Container id="about-me">
           <Spacing top={50} />
           <div className="fl-j-center-al-i-center">

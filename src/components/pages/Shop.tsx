@@ -5,7 +5,7 @@ import ImageCarousel from '../ImageCarousel.tsx';
 
 const Shop: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
     </div>
   );
 }

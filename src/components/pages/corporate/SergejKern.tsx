@@ -5,7 +5,7 @@ import ImageCarousel from "../../ImageCarousel.tsx";
 
 const SergejKern: React.FC = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
         <Container>
           <Title>Corporate Design & Website</Title>
           <Subtitle>Sergej Kern</Subtitle>

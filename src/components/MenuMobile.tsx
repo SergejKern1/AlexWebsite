@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Menu from "./Menu";
 import {primaryMenuItems, secondaryMenuItems} from "../util/menuItems";
+import {Image} from "react-bootstrap";
+import { Spacing } from "../util/class-utils";
 
 const MenuMobile: React.FC = () => {
 
@@ -11,17 +13,17 @@ const MenuMobile: React.FC = () => {
     };
 
     return (
-        <div className="sticky-bottom d-flex d-sm-none align-items-center justify-content-center">
-            <div
+        <div className = "sticky-bottom d-flex d-sm-none align-items-center justify-content-center">
+            <div className = "w-75"
                 id="menu-mobile"
                 style={{
                     display: isMenuOpen ? 'block' : 'none',
                     position: 'absolute',
-                    bottom: '100%',  // Position the menu above the button
+                    bottom: '0%',  // Position the menu above the button
                     backgroundColor: '#fff',  // Background color for the menu
                     width: '100%',  // Ensure it takes up the full width
-                    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',  // Optional shadow for better visibility
-                    zIndex: 1000, // Make sure the menu is above other elements
+                    boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.2)',  // Optional shadow for better visibility
+                    zIndex: -1, // Make sure the menu is above other elements
                 }}
             >
                 <b style={{ textTransform: 'uppercase' }}>
@@ -30,8 +32,9 @@ const MenuMobile: React.FC = () => {
                 </b>
                 <Menu
                     menuItems={secondaryMenuItems} isMobile={true} />
+                    <Spacing top = {50}/>
             </div>
-            <div className="btn btn-primary" onClick={onClick}><i className="fas fa-bars"></i> </div>
+            <Image src = {isMenuOpen ? "icons/close.svg" : "icons/menu.svg"} onClick={onClick} style={{width:"45px", height:"45px"}}/>
         </div>
     );
   }

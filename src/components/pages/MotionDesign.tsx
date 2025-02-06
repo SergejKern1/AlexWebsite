@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import {Container, Row, Col, Button, Image} from "react-bootstrap";
+import {Image} from "react-bootstrap";
 
 import Grid from '../Grid';
-
-import LandscapeIcon from '../svg/Landscape';
-import PortraitIcon from '../svg/Portrait';
 
 const enum Format {
     Landscape,
@@ -24,39 +21,52 @@ const MotionDesign: React.FC = () => {
         return "btn btn-primary";
     else return "btn btn-light";
   }
-  const getColor=(expected: Format)=>{
-    if (format===expected)
-        return "#ffffff";
-    else return "#777777";
+  const landscapeSrc=()=>{
+    if (format===Format.Landscape)
+        return "/icons/landscape-icn-active.svg";
+    return "/icons/landscape-icn-inactive.svg";
+  }
+  const portraitSrc=()=>{
+    if (format===Format.Portrait)
+        return "/icons/portrait-icn-active.svg";
+    return "/icons/portrait-icn-inactive.svg";
   }
 
   return (
-    <div>
+    <div className="overflow-hidden">
         <div className="fl-j-center-al-i-center" style={{ color: "white" }} >
             <div
                 className={getBtnStyleClass(Format.Landscape)}
                 onClick={() => setFormat(Format.Landscape)}
                 style={{
-                    width: "65px",
-                    height: "55px",
+                    padding: "5px 7.5px",
+                    maxWidth: "65px",
+                    maxHeight: "55px",
                     display: "flex", // Enable flexbox
                     alignItems: "center", // Center vertically
                     justifyContent: "center", // Center horizontally
                 }}
             >
-                {LandscapeIcon(getColor(Format.Landscape), "40px", "20")}
+                <Image fluid src={landscapeSrc()} style={{
+                    width: "55px",
+                    height: "45px",
+                }} />
             </div>
             <div
                 className={getBtnStyleClass(Format.Portrait)}
                 onClick={() => setFormat(Format.Portrait)}
                 style={{
-                    width: "65px",
-                    height: "55px",
+                    padding: "5px 7.5px",
+                    maxWidth: "65px",
+                    maxHeight: "55px",
                     display: "flex", // Enable flexbox
                     alignItems: "center", // Center vertically
                     justifyContent: "center", // Center horizontally
                 }} >
-                {PortraitIcon(getColor(Format.Portrait), "40px", "20")}
+                <Image fluid src={portraitSrc()} style={{
+                    width: "55px",
+                    height: "45px",
+                }} />
             </div>
         </div>
 
@@ -99,9 +109,12 @@ const MotionDesign: React.FC = () => {
         </Grid>
 
         <Grid containerClass={`m-2 ${getDisplayClass(Format.Portrait)}`} rowClass='row g-2' elementClass='col-6 col-md-4 col-lg-3'>
-            <video className='img-fluid' autoPlay loop={true} muted={true}>
-                <source src="/Motion/Machloket-Intro_1.mp4" type="video/webm" /> Your browser does not support the video tag.
-            </video>
+            <a className='position-relative'>
+                <video className='img-fluid' autoPlay loop={true} muted={true}>
+                    <source src="/Motion/Machloket-Intro_1.mp4" type="video/webm" /> Your browser does not support the video tag.
+                </video>
+                <Image className="position-absolute" src='mehr-dazu-inactive.png' style={{width:"75px", bottom:"0", right:"0"}} />
+            </a>
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/animedetektei.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>
