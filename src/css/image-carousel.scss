@@ -1,3 +1,147 @@
+.ic-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.03); /* Subtle background for contrast */
+    border-radius: 12px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.ic-carousel-track {
+    height: 400px;
+}
+
+.ic-carousel-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    top:0;
+    left:50%;
+    display: none;
+    padding: 20px;
+    
+    &.active{
+        display: block;
+
+        transform: translateX(-50%) scale(1);
+        z-index: 2;
+    }
+    &.pre-1{
+        display: block;
+        transform: translateX(-125%) scale(0.75);
+        opacity: 0.7;
+
+        z-index: 1;
+    }
+    &.next-1{
+        display: block;
+        transform: translateX(25%) scale(0.75);
+        opacity: 0.7;
+
+        z-index: 1;
+    }
+    &.pre-2{
+        display: block;
+        transform: translateX(-150%) scale(0.5);
+        opacity: 0.5;
+
+        z-index: 0;
+    }
+    &.next-2{
+        display: block;
+        transform: translateX(50%) scale(0.5);
+        opacity: 0.5;
+
+        z-index: 0;
+    }
+}
+
+// todo: height when using component
+.ic-carousel-image {
+    max-height: 400px;
+    @media (max-width: 768px) {
+        max-height: 300px;
+    }
+}
+
+/* Navigation buttons */
+.ic-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0);
+    border: none;
+
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+
+    &:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+      
+    &.prev { left: 20px; }
+    &.next { right: 20px; }
+
+    img {
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15)) !important;
+    }
+    @media (max-width: 768px) {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+/* Improved indicators */
+.ic-carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+}
+
+.ic-indicators-container {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.ic-indicator {
+    width: 20px;
+    height: 7px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+        background: rgba(255, 255, 255, 0.9);
+        transform: scale(1.2);
+    }
+    &:hover {
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 768px) {
+        width: 15px;
+        height: 3px;
+    }
+}
+
 .carousel-img {
     max-height: 570px; 
     max-width: 100%;

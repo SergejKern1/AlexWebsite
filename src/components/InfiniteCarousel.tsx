@@ -374,7 +374,7 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
   return (
     <div className="carousel-container position-relative" ref={containerRef} >
       {isHover.current 
-        ? (<Image className="position-absolute" 
+        ? (<Image className="position-absolute" onClick={() => setVelocity(50)}
             style={{width:"50px", left:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
             src="icons/arrow-left.svg" />)
         : (null)}
@@ -393,7 +393,7 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
         ))}
       </div>
       {isHover.current 
-        ? (<Image className="position-absolute" 
+        ? (<Image className="position-absolute" onClick={() => setVelocity(-50)}
           style={{width:"50px", right:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
           src="icons/arrow-right.svg" />)
         : (null)}
