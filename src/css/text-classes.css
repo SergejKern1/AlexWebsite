@@ -21,6 +21,7 @@
   font-size: 3rem;
   /* Adjust the font size as needed */
   font-weight: 800;
+  line-height: 2.5rem;
   text-transform: uppercase;
   color: transparent;
   /* Makes the inside of the text transparent */
@@ -28,7 +29,8 @@
   /* Adds the outline; adjust width and color */
   text-align: right;
   /* Optional: Align text */
-  margin-top: 0px;
+  margin-top: 5px;
+  margin-bottom: 25px;
 }
 
 .subtitle-text::after {
@@ -48,6 +50,19 @@
   /* Align square to the left of the element */
   margin-top: -10px;
   /* Add spacing between the element and the square */
+}
+
+.section-title-text {
+  font-size: 2rem;
+  /* Adjust the font size as needed */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary);
+  /* Makes the inside of the text transparent */
+  text-align: right;
+  /* Optional: Align text */
+  margin-bottom: -0.5rem;
+  line-height: 2.5rem;
 }
 
 .comment-txt {

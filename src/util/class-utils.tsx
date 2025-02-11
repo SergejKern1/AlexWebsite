@@ -24,6 +24,14 @@ export const Subtitle : React.FC<TagProps> = ({ id, className, style, children, 
         </h2>
     );
 };
+export const SectionTitle : React.FC<TagProps> = ({ id, className, style, children, ...rest }) => {
+
+    return (
+        <h2 id={id} className={clsx('section-title-text', className)} style={style} {...rest}>
+            {children}
+        </h2>
+    );
+};
 
 interface SpacingProps extends TagProps {
     top?: number;

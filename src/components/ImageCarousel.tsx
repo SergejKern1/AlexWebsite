@@ -4,12 +4,15 @@ import clsx from 'clsx';
 import "./../css/image-carousel.scss";
 
 interface ImageCarouselProps {
-  imgs: { src: string; alt: string }[];
+  id: string;
+  imgs: { src: string; alt?: string }[];
+  previewCount?: number;
+  height?: number;
   activeIndex?: number;
   onSelect?: (index: number) => void;
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ imgs, activeIndex = 0, onSelect }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ id, imgs, height = 400, previewCount = 2, activeIndex = 0, onSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(activeIndex);
   
   useEffect(() => {
@@ -35,22 +38,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ imgs, activeIndex = 0, on
   };
 
   return (
-    <div className="ic-carousel-container">
-      <div className="ic-carousel-track">
+    <div id={id} className="ic-carousel-container" style={{height:height+50}}>
+      <div className="ic-carousel-track" style={{height:height}}>
         {imgs.map((img, index) => {
-            console.log("index preIdx(1)", index, preIdx(1));
+            // console.log("index preIdx(1)", index, preIdx(1));
             
             const activityClass = clsx(
                 index === currentIndex && 'active',
-                index === preIdx(1) && 'pre-1',
-                index === nextIdx(1) && 'next-1',
-                index === preIdx(2) && 'pre-2',
-                index === nextIdx(2) && 'next-2',
+                previewCount > 0 && index === preIdx(1) && 'pre-1',
+                previewCount > 0 && index === nextIdx(1) && 'next-1',
+                previewCount > 1 && index === preIdx(2) && 'pre-2',
+                previewCount > 1 && index === nextIdx(2) && 'next-2',
                 'ic-carousel-item'
             );
             return (
                 <div key={index} className={activityClass} >
-                    <img src={img.src} alt={img.alt} className="ic-carousel-image" />
+                    <img src={img.src} alt={img.alt} className="ic-carousel-image" style={{'--max-height': height+'px' } as React.CSSProperties} />
                 </div>
             )})
         }

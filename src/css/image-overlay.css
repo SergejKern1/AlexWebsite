@@ -1,0 +1,38 @@
+.img-hover-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.img-hover-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.img-hover-container .overlay {
+  color: black;
+  display: flex;
+  position: absolute;
+  top: 2.5vw;
+  left: 2.5vw;
+  right: 2.5vw;
+  bottom: 2.5vw;
+  background: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-hover-container:hover .overlay {
+  opacity: 1;
+}
+
+.img-hover-container:hover img {
+  filter: blur(2px) brightness(1.2);
+  /* Adds blur and increases brightness */
+  transform: scale(1.05);
+  /* Slight zoom effect */
+}

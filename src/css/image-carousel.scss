@@ -1,6 +1,9 @@
+@import "variables";
+
 .ic-carousel-container {
     position: relative;
     width: 100%;
+
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
@@ -9,10 +12,6 @@
     
     display: flex;
     justify-content: center;
-}
-
-.ic-carousel-track {
-    height: 400px;
 }
 
 .ic-carousel-item {
@@ -59,11 +58,10 @@
     }
 }
 
-// todo: height when using component
 .ic-carousel-image {
-    max-height: 400px;
+    max-height: var(--max-height);
     @media (max-width: 768px) {
-        max-height: 300px;
+        max-height: calc(var(--max-height) * 0.8);
     }
 }
 
@@ -102,7 +100,7 @@
 /* Improved indicators */
 .ic-carousel-indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
     left: 0;
     right: 0;
 
@@ -112,7 +110,7 @@
 }
 
 .ic-indicators-container {
-    background: rgba(0, 0, 0, 0.2);
+    // background: rgba(0, 0, 0, 0.2);
     padding: 8px 12px;
     border-radius: 20px;
     display: flex;
@@ -123,63 +121,21 @@
     width: 20px;
     height: 7px;
     border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    background: transparent;
+    border: 2px solid rgba($primary, 0);
+    background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.3s ease;
 
     &.active {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba($primary, 0.9);
         transform: scale(1.2);
     }
     &:hover {
-        background: rgba(255, 255, 255, 0.6);
+        background: rgba($primary, 0.6);
     }
 
     @media (max-width: 768px) {
         width: 15px;
         height: 3px;
-    }
-}
-
-.carousel-img {
-    max-height: 570px; 
-    max-width: 100%;
-}
-
-.img-hover-container {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-
-    img {
-        display: block;
-        width: 100%;
-        height: auto;
-        transition: filter 0.3s ease, transform 0.3s ease;
-    }
-    .overlay {
-        color: black;
-        display: flex;
-        position: absolute;
-        top: 2.5vw;
-        left: 2.5vw;
-        right: 2.5vw;
-        bottom: 2.5vw;
-
-        background: rgba(255, 255, 255, 0.8); // Semi-transparent white
-        justify-content: center; // Center content horizontally
-        align-items: center; // Center content vertically
-        opacity: 0; // Initially hidden
-        transition: opacity 0.3s ease; // Smooth fade-in
-    }
-    &:hover {
-        .overlay {
-            opacity: 1;
-        }
-        img {
-            filter: blur(2px) brightness(1.2); /* Adds blur and increases brightness */
-            transform: scale(1.05); /* Slight zoom effect */
-        }
     }
 }
