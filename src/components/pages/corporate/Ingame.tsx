@@ -23,8 +23,9 @@ const Ingame: React.FC = () => {
         </div>
         <Spacing top={15} />
         <Row >
-            <Col xs={12}>
-              <Image fluid className="d-block-mx-auto mw-600" 
+            <Col xs={12} className="position-relative">
+              <Image className="lt-xy-center z-0 w-50" src="/CorporateDesign/Ingame/splash-x-01-pink.png" />
+              <Image fluid className="position-relative d-block-mx-auto z-1 mw-600" 
                 src="/CorporateDesign/Ingame/ingame-briefbogen-visitenkarte.png" loading="lazy" />
             </Col>
         </Row>
