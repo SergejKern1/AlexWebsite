@@ -3,7 +3,7 @@ import { Container,
   Image } from "react-bootstrap";
 
 import { lazyPlaceholder } from "util/lazy.ts";
-import { Title, Subtitle } from "util/class-utils.tsx";
+import { Title, Subtitle, Spacing } from "util/class-utils.tsx";
 import { loremIpsumText } from "util/loremIpsum";
 
 const HayHurray: React.FC = () => {
@@ -12,6 +12,8 @@ const HayHurray: React.FC = () => {
       <div style={lazyPlaceholder(1600, 500)}>
         <Image fluid className='mt-1' src="/CorporateDesign/elayn/elayn-header.jpg" style={{ width: '100%' }} loading="lazy" />
       </div>
+      <Spacing top={50}/>
+      
       <Container className="mw-800px">
         <Title>Hay Hurray</Title>
         <Subtitle>Elayn</Subtitle>

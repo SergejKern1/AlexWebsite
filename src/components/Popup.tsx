@@ -1,3 +1,4 @@
+import { Spacing } from "util/class-utils";
 import { useEffect } from "react";
 
 export interface PopupProps {
@@ -16,11 +17,11 @@ const Popup: React.FC<PopupProps> = ({ onClose, children }) => {
 
   return (
     <div className="popup-overlay" onClick={onClose}>
-
-      <div className="mw-1000px mx-auto position-relative">
+      <Spacing top={20}/>
+      <div className="mw-1000px mx-auto position-sticky" style={{top:'20px', right:'0px', zIndex:'4'}}>
         <div onClick={()=>{                
             onClose();
-        }} style={{position:'absolute', top:'-25px', right:'25px', zIndex:'4'}}>
+        }} style={{position:'absolute', top:'-25px', right:'-25px',}}>
             <img src="/close.png" style={{width:'50px'}}/>
         </div>
       </div>

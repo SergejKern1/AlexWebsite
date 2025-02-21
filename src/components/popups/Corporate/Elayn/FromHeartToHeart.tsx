@@ -3,7 +3,7 @@ import {Container,
     Image} from "react-bootstrap";
 
 import { lazyPlaceholder } from "util/lazy.ts";
-import {Title, Subtitle, SectionTitle} from "util/class-utils.tsx";
+import {Title, Subtitle, SectionTitle, Spacing} from "util/class-utils.tsx";
 import { loremIpsumText } from "util/loremIpsum";
 import InfiniteCarousel from "components/InfiniteCarousel";
 
@@ -13,6 +13,7 @@ const FromHeartToHeart: React.FC = () => {
         <div style={lazyPlaceholder(975, 180)}>
             <Image fluid src="/CorporateDesign/elayn/Banner_Bandcamp.jpg" style={{width: '100%'}} loading="lazy"/>
         </div>
+        <Spacing top={50}/>
         <Container className="mw-800px">
             <Title>From Heart to Heart</Title>
             <Subtitle>Elayn</Subtitle>
@@ -25,6 +26,8 @@ const FromHeartToHeart: React.FC = () => {
                 <Image className="mx-autoblock" src="/CorporateDesign/elayn/LOGO_01_black.png" loading="lazy" />
             </div>
         </Container>
+        <Spacing top={50}/>
+
         <Container className="mw-800px">
             <SectionTitle>
             From Heart to Heart
@@ -39,11 +42,13 @@ const FromHeartToHeart: React.FC = () => {
             Visitenkarte
             </SectionTitle>
         </Container>
+        <Spacing top={20}/>
 
         <div style={lazyPlaceholder(5249, 1640)}>
             <Image fluid
                         src="/CorporateDesign/elayn/Visitenkarte-thumbnail.jpg" loading="lazy" />
         </div>
+        <Spacing top={15}/>
 
         <div className="carousel-container-row"> 
             <InfiniteCarousel autoPlayVelocity={0.5}>
@@ -55,6 +60,8 @@ const FromHeartToHeart: React.FC = () => {
                 <img className="px-2" src="/CorporateDesign/elayn/ZreebarkHealing.jpg" loading="lazy" />
             </InfiniteCarousel>
         </div>
+        <Spacing top={15}/>
+
     </div>
   );
 }
