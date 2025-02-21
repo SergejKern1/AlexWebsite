@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { lerp, clamp01 } from "../util/math-ext";
+import { lerp, clamp01 } from "util/math-ext";
 import {Image} from "react-bootstrap";
 
-import "./../css/infinite-carousel.scss"; // Create this file for the CSS
+import "css/infinite-carousel.scss"; // Create this file for the CSS
 
 interface InfiniteCarouselProps {
   autoPlayVelocity?: number;
   debugName? : string;
+  extend?: number;
+  allowMove?: boolean;
+
   children: React.ReactNode;
 }
 
-const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity = 1, debugName="", children }) => {
+const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity = 1, debugName="", extend=2, allowMove=true, children }) => {
   //const [index, setIndex] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [isInView, setIsInView] = useState(0);
@@ -306,7 +309,7 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
     const handleMouseLeave = (e: MouseEvent) => isHover.current = false;
 
     const track = containerRef.current;
-    if (track) {
+    if (track && allowMove) {
       track.addEventListener('touchstart', handleTouchStart, { passive: false });
       track.addEventListener('touchmove', handleTouchMove, { passive: false });
       track.addEventListener('touchend', handleTouchEnd);
@@ -318,7 +321,7 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
       track.addEventListener("mouseleave", handleMouseLeave);
     }
     return () => {
-      if (track) {
+      if (track && allowMove) {
         track.removeEventListener('touchstart', handleTouchStart);
         track.removeEventListener('touchmove', handleTouchMove);
         track.removeEventListener('touchend', handleTouchEnd);
@@ -330,7 +333,8 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
         track.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
-  }, [callOnPlayerForFrame, isReady, loopOffset, offset, startOffset, totalWidth, velocity]);
+  }, [allowMove, callOnPlayerForFrame, isReady, loopOffset, 
+    offset, startOffset, totalWidth, velocity]);
   // ===========================================================================================
 
   useEffect(() => {
@@ -368,15 +372,24 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
     }
   };
 
-  const childrenArray = React.Children.toArray(children);
-  const extendedChildren = childrenArray.concat(childrenArray).concat(childrenArray);
+  const initChildren = (childrenArray : (string | number 
+    | React.ReactElement<unknown, string 
+    | React.JSXElementConstructor<unknown>> 
+    | Iterable<React.ReactNode> | React.ReactPortal)[]) => {
+    let extendedChildren = childrenArray;
+    for (let i=0; i<extend; ++i ) {
+      extendedChildren = extendedChildren.concat(childrenArray);
+    }
+    return extendedChildren;
+  }
+  const extendedChildren = initChildren(React.Children.toArray(children));
 
   return (
     <div className="carousel-container position-relative" ref={containerRef} >
-      {isHover.current 
+      {isHover.current && allowMove
         ? (<Image className="position-absolute" onClick={() => setVelocity(50)}
             style={{width:"50px", left:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
-            src="icons/arrow-left.svg" />)
+            src="/icons/arrow-left.svg" />)
         : (null)}
       <div
         className={`carousel-track no-interact`}
@@ -392,10 +405,10 @@ const InfiniteCarousel : React.FC<InfiniteCarouselProps> = ({ autoPlayVelocity =
           </div>
         ))}
       </div>
-      {isHover.current 
+      {isHover.current && allowMove
         ? (<Image className="position-absolute" onClick={() => setVelocity(-50)}
           style={{width:"50px", right:"15px", zIndex:"1", filter:"drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15))"}} 
-          src="icons/arrow-right.svg" />)
+          src="/icons/arrow-right.svg" />)
         : (null)}
     </div>
   );

@@ -6,13 +6,14 @@ export interface ImageLinkOverlayData {
     id?:string;
     className?:string;
     src: string, href?: string, 
+    onClick?: () => void,
     hoverTitle?: string;
     hoverSubtitle?: string;
     hoverText?: string;
     style?: React.CSSProperties;
 }
 
-const ImageOverlay: React.FC<ImageLinkOverlayData> = ({ id, className, style, src, href, hoverTitle, hoverSubtitle, hoverText, ...rest}) => {
+const ImageOverlay: React.FC<ImageLinkOverlayData> = ({ id, className, style, src, href, onClick, hoverTitle, hoverSubtitle, hoverText, ...rest}) => {
     const imgInner = () => {
         return (
             <div>
@@ -29,7 +30,7 @@ const ImageOverlay: React.FC<ImageLinkOverlayData> = ({ id, className, style, sr
             );
     }
     return (
-        <div id={id} className={clsx("img-hover-container", className)} style={style} {...rest}>
+        <div id={id} className={clsx("img-hover-container", className)} onClick={onClick} style={style} {...rest}>
             {href && ( <a href={href}> {imgInner()} </a> )}
             {!href && (imgInner())}
         </div>

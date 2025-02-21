@@ -10,12 +10,11 @@
 .top-150 { margin-top:150px; }
 .top-500 { margin-top:500px; }
 
-.mw-600 {
-    max-width: 600px;
-}
-.mw-800 {
-    max-width: 800px;
-}
+.mw-400px { max-width: 400px; }
+.mw-600px { max-width: 600px; }
+.mw-800px { max-width: 800px; }
+.mw-1000px { max-width: 1000px; }
+
 .lt-xy-center {
     position: absolute;
     left:50%; 
@@ -54,7 +53,7 @@
     @extend .d-flex, .flex-nowrap;
 }
 
-.d-block-mx-auto
+.mx-autoblock
 {
     @extend .d-block, .mx-auto;
 }
@@ -62,9 +61,17 @@
 {
     @extend .mx-auto, .align-items-center;
 }
-.def-block-800 {
-    @extend .mt-4, .d-block-mx-auto, .mw-800;
+.mx-autoblock-800px {
+    @extend .mt-4, .mx-autoblock, .mw-800px;
 }
+
+.tx-2col-g75
+{
+    padding: 15px; 
+    columns: 2; 
+    column-gap: 75px;
+}
+
 .freebee-dwnld-btn {
     @extend .btn, .btn-primary, .l-x-center;
 
@@ -78,32 +85,40 @@
     height:600px;
     width:1067px;
 }
-.w1057xh600 {
-    height:600px;
-    width:1067px;
-}
 .w338xh600 {
     height:600px;
     width:338px;
 }
 
-.gallery-overlay
-{
-    background-color: rgba(0,0,0,0.8);
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+.gallery-overlay
+{
+    @extend .overlay;
+
+    background-color: rgba(0,0,0,0.8);
     z-index: 1000;
     display: 'flex';
     flex-direction: 'column'; 
     align-items: 'center';
 }
 
+.gallery-close-bg
+{
+    @extend .overlay;
+}
+
 .custom-column-txt {
     font-size: 12pt;
-    @include media-breakpoint-up(md) {
-        font-size: calc(min(16pt, 1.6vw));
+    @include media-breakpoint-between(md, lg) { 
+        font-size: calc(min(14pt, 1.8vw));
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 14pt;
     }
 }

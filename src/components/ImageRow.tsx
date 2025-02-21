@@ -2,14 +2,17 @@ import React, {useState, useEffect, useRef} from "react";
 
 export interface ImageRowItem {
     src: string;
+    width?: number;
+    height?: number;
 }
 export interface ImageRowProps {
     rowItems: ImageRowItem[];
+    padding?: number;
     onClick?: (src: string) => void;
     children?: React.ReactNode;
 }
 
-const ImageRow: React.FC<ImageRowProps> = ({ rowItems, onClick, children }) => {
+const ImageRow: React.FC<ImageRowProps> = ({ rowItems, padding=0, onClick, children }) => {
     const [imageWidths, setImageWidths] = useState<number[]>([]); // Store original image widths
     const [imageHeight, setImageHeight] = useState<number>(0); // Store original image widths
     const [scaledImageWidths, setScaledImageWidths] = useState<number[]>([]); // Store scaled image widths
@@ -20,29 +23,40 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, onClick, children }) => {
     useEffect(() => {
         let tempHeight = 0;
         // Function to get the original image width
-        const getImageWidth = (src: string) => {
+        const getImageWidth = (src: string, width?: number, height?: number) => {
             return new Promise<number>((resolve) => {
-                const img = new Image();
-                img.onload = () => {
+
+                function resolveFunc(w:number, h:number){
                     let ratio = 1;
                     if (tempHeight === 0)
                     {
-                        tempHeight = img.height;
-                        setImageHeight(img.height);
+                        tempHeight = h;
+                        setImageHeight(h);
                     }
-                    else if (tempHeight !== img.height)
+                    else if (tempHeight !== h)
                     {
-                        ratio = tempHeight / img.height;
+                        ratio = tempHeight / h;
                         console.log(ratio);
                     }
-                    resolve(img.width * ratio); // Resolve with the natural width of the image
+                    resolve(w * ratio); // Resolve with the natural width of the image
+                }
+
+                if (width && height)
+                {
+                    resolveFunc(width, height);
+                    return;
+                }
+
+                const img = new Image();
+                img.onload = () => {
+                    resolveFunc(img.width, img.height);
                 }
                 img.src = src; // Load the image to get its width
             });
         };
 
         const calculateImageWidths = async () => {
-            const widths = await Promise.all(rowItems.map((item) => getImageWidth(item.src)));
+            const widths = await Promise.all(rowItems.map((item) => getImageWidth(item.src, item.width, item.height)));
             console.log('setImageWidths', widths);
             setImageWidths(widths); // Store original image widths
         };
@@ -57,7 +71,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, onClick, children }) => {
                 return;
         
             const containerWidth = containerRef.current.offsetWidth;
-            const totalOriginalWidth = imageWidths.reduce((acc, width) => acc + width, 0);
+            const totalOriginalWidth = imageWidths.reduce((acc, width) => acc + width + 2*padding, 0);
             const scaleFactor = containerWidth / totalOriginalWidth;
             console.log('scaleFactor', scaleFactor);
 
@@ -73,12 +87,12 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, onClick, children }) => {
         return () => {
         window.removeEventListener("resize", handleResize);
         };
-    }, [imageHeight, imageWidths]);
+    }, [imageHeight, imageWidths, padding]);
 
     const childrenArray = children ? React.Children.toArray(children) : null;
     
     return (
-      <div ref={containerRef} className="image-row-container fl-nowrap">
+      <div ref={containerRef} className="image-row-container fl-nowrap" >
         {childrenArray ? childrenArray.map((child, index) => (
             <div key={index}
             style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto" }} // Apply scaled width
@@ -88,7 +102,7 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, onClick, children }) => {
             <img key={index}
               src={gridItem.src}
               alt={`Image ${index + 1}`}
-              style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto" }} // Apply scaled width
+              style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto", padding: padding, objectFit: 'cover' }} // Apply scaled width
               onClick={() => onClick && onClick(gridItem.src)}
             />
         ))}

@@ -6,14 +6,14 @@ import ScrollToAnchor from "./util/ScrollToAnchor";
 
 import Homepage from './components/pages/Homepage'
 import CorporateDesign from './components/pages/CorporateDesign';
-  import GoForIt from './components/pages/corporate/GoForIt';
-  import DoItRtr from './components/pages/corporate/DoItRtr';
-  import Elayn from './components/pages/corporate/Elayn';
-  import Flyer from './components/pages/corporate/Flyer';
-  import Ingame from './components/pages/corporate/Ingame';
-  import Ippen from './components/pages/corporate/Ippen';
-  import SergejKern from './components/pages/corporate/SergejKern';
-  import USWahl from './components/pages/corporate/USWahl';
+  import GoForIt from './components/popups/Corporate/GoForIt';
+  import DoItRtr from './components/popups/Corporate/DoItRtr';
+  import Elayn from './components/popups/Corporate/Elayn';
+  import Flyer from './components/popups/Corporate/Flyer';
+  import Ingame from './components/popups/Corporate/Ingame';
+  import Ippen from './components/popups/Corporate/Ippen';
+  import SergejKern from './components/popups/Corporate/SergejKern';
+  import USWahl from './components/popups/Corporate/USWahl';
 
 import MotionDesign from './components/pages/MotionDesign';
 import Illustration from './components/pages/Illustration';

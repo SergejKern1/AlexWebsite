@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Button} from "react-bootstrap";
-import ImageRow from "../ImageRow";
-import ImageCarousel from '../ImageCarousel.tsx';
+import ImageRow from "components/ImageRow";
+import ImageCarousel from 'components/ImageCarousel.tsx';
+
+import ImageGallery from 'components/ImageGallery';
+import { useGallery } from 'components/ImageGalleryCtx';
 
 const Illustration: React.FC = () => {
-    const [showGallery, setShowGallery] = useState<boolean>(false); 
-    const [selectedIdx, setSelectedIdx] = useState<number>(0);
-
     const row01 = [
       {src: "Illustrations/LotusFlower.jpeg"},
       {src: "Illustrations/TIGER-fluid.jpg"},
@@ -49,27 +49,13 @@ const Illustration: React.FC = () => {
     ];
 
   const allRows = row01.concat(row02, row03, row04, row05, row06, row07, row08, row09);
-  
-  const setImage = (imageSrc:string)=>{
-    if (imageSrc === null)
-      return;
-
-    const idx = allRows.findIndex((item) => item.src === imageSrc);
-    if (selectedIdx === idx) 
-      return;
-    setSelectedIdx(idx);
-    setShowGallery(idx >= 0);
-  };
+  const galleryCtx = useGallery(allRows);
+  const setImage = (imageSrc:string) => galleryCtx.setImage(imageSrc);
 
   return (
     <div className="overflow-hidden">
-      {showGallery ? (
-        <div className="gallery-overlay">
-            <ImageCarousel id="Sketchbook" imgs={allRows} 
-              activeIndex={selectedIdx} onSelect={setSelectedIdx} />
-          <Button onClick={() => setShowGallery(false)}>Close</Button>
-        </div>) 
-        : null}
+      <ImageGallery ctx={galleryCtx} />
+
       <ImageRow rowItems={row01} onClick={setImage}></ImageRow>
       <ImageRow rowItems={row02} onClick={setImage}></ImageRow>
       <ImageRow rowItems={row03} onClick={setImage}></ImageRow>

@@ -23,3 +23,25 @@ body {
 
 
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+    overflow-y: auto;
+    padding: 20px;
+
+    z-index: 5000;
+}
+.popup-content {
+    position: relative;
+
+    background: white;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures child elements are clipped to the border-radius */
+
+}
+  

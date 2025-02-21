@@ -2,6 +2,18 @@
   --primary: #f4a637;
 }
 
+@media (max-width: 575px) {
+  :root {
+    --menu-width: 0px;
+  }
+}
+
+@media (min-width: 576px) {
+  :root {
+    --menu-width: 211px;
+  }
+}
+
 .pink {
   --primary: #ff00ff;
 }
@@ -122,6 +134,7 @@
 }
 
 .ic-indicators-container {
+  background: rgba(1, 1, 1, 0.05);
   padding: 8px 12px;
   border-radius: 20px;
   display: flex;
@@ -132,8 +145,8 @@
   width: 20px;
   height: 7px;
   border-radius: 15px;
-  border: 2px solid rgba(244, 166, 55, 0);
-  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(244, 166, 55, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
 }

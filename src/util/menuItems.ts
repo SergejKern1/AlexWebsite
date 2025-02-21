@@ -6,6 +6,7 @@ export const primaryMenuItems = [
   ];
   export const secondaryMenuItems = [
     { title: 'Shop', href: '/shop' },
+    { title: null, href: null }, // empty element for some spacing
     { title: 'Sketchbook', href: '/sketch-book' },
     { title: 'About me', href: '/about#about-me', activeHash: "about-me" },
     { title: 'Contact', href: '/about#contact', activeHash: "contact" },

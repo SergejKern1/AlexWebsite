@@ -1,7 +1,8 @@
-import {Container, Row, Col, Form, Button, Image} from "react-bootstrap";
-import {Title, Subtitle} from "../../../util/class-utils.tsx";
-
-import { loremIpsumText } from "../../util/loremIpsum";
+import {Container, 
+  // Row, Col, Form, Button, Image
+} from "react-bootstrap";
+import {Title, Subtitle} from "util/class-utils.tsx";
+// import { loremIpsumText } from "util/loremIpsum";
 
 const Pitrush: React.FC = () => {
   return (
@@ -10,7 +11,6 @@ const Pitrush: React.FC = () => {
           <Title>Pitrush</Title>
           <Subtitle>The Tribe (HAW)</Subtitle>
         </Container>
-
     </div>
   );
 }

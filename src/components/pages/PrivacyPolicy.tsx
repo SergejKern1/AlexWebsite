@@ -1,9 +1,9 @@
 import React from "react";
 
 import {Container, Row, Col, Button, Image} from "react-bootstrap";
-import {Title, Subtitle} from "../../util/class-utils.tsx";
-import compactTxt from "../../assets/SecretPolicy/compact.txt";
-import detailTxt from "../../assets/SecretPolicy/detail.txt";
+import {Title, Subtitle} from "util/class-utils.tsx";
+import compactTxt from "assets/SecretPolicy/compact.txt";
+import detailTxt from "assets/SecretPolicy/detail.txt";
 
 const PrivacyPolicy: React.FC = () => {
   const [compactTxtContent, setCompactTxtContent] = React.useState("");
@@ -25,22 +25,26 @@ const PrivacyPolicy: React.FC = () => {
   }
   return (
     <div className="overflow-hidden">
-        <Container>
+        <Container className="mw-800px">
           <Title>Datenschutzbestimmungen</Title>
           <Subtitle>Privacy Policy</Subtitle>
         </Container>
-        <Row><Col><h3>Kompakte Version</h3></Col></Row>
-        <Row>
-          <Col>
-            {renderTxt(compactTxtContent)}
-          </Col>
-        </Row>
-        <Row><Col><h3>Ausführliche Version</h3></Col></Row>
-        <Row>
-          <Col>
-            {renderTxt(detailTxtContent)}
-          </Col>
-        </Row>
+        <Container className="mw-800px">
+
+          <Row><Col><h3>Kompakte Version</h3></Col></Row>
+          <Row>
+            <Col>
+              {renderTxt(compactTxtContent)}
+            </Col>
+          </Row>
+          <Row><Col><h3>Ausführliche Version</h3></Col></Row>
+          <Row>
+            <Col>
+              {renderTxt(detailTxtContent)}
+            </Col>
+          </Row>
+        </Container>
+
     </div>
   );
 }

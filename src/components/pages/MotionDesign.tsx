@@ -1,16 +1,41 @@
 import { useState } from 'react';
 import {Image} from "react-bootstrap";
 
-import Grid from '../Grid';
+import Grid from 'components/Grid';
+import Popup from 'components/Popup';
+import NightKitchen from 'components/popups/Motion/NightKitchen';
+import Rätsel from 'components/popups/Motion/Rätsel';
+import JunkChef from 'components/popups/Motion/JunkChef';
+import Machloket from 'components/popups/Motion/Machloket';
 
 const enum Format {
     Landscape,
     Portrait,
 }
 
+interface HoverVideoProps {
+    onClick: () => void;
+    videoSrc: string;
+}
+
+const HoverVideo: React.FC<HoverVideoProps> = ({ onClick, videoSrc }) => {
+    const [hover, setHover] = useState(false);
+
+    return (
+        <div className='position-relative' onClick={onClick} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} >
+            <video className='img-fluid' autoPlay loop={true} muted={true}>
+                <source src={videoSrc} type="video/webm" /> Your browser does not support the video tag.
+            </video>
+            <Image className="position-absolute" src={hover ? 'Mehr-dazu-hover.png' : 'mehr-dazu-inactive.png'}
+            style={{width:"75px", bottom:"5px", right:"-2px"}} />
+        </div>
+    );
+}
+
 const MotionDesign: React.FC = () => {
   const [format, setFormat] = useState(Format.Portrait);
-  
+  const [activePopup, setActivePopup] = useState<string | null>(null);
+
   const getDisplayClass=(expected: Format)=>{
     if (format===expected)
         return "d-block";
@@ -34,6 +59,16 @@ const MotionDesign: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+
+        { activePopup && 
+            <Popup onClose={() => setActivePopup(null)} >
+                {activePopup === "night-kitchen" && <NightKitchen/>}
+                {activePopup === "raetsel" && <Rätsel/>}
+                {activePopup === "junk-chef" && <JunkChef/>}
+                {activePopup === "machloket" && <Machloket/>}
+            </Popup>
+        }
+
         <div className="fl-j-center-al-i-center" style={{ color: "white" }} >
             <div
                 className={getBtnStyleClass(Format.Landscape)}
@@ -71,9 +106,7 @@ const MotionDesign: React.FC = () => {
         </div>
 
         <Grid containerClass={`m-2 ${getDisplayClass(Format.Landscape)}`} rowClass='row g-2' elementClass='col-12 col-lg-6'>
-            <video className='img-fluid' autoPlay loop={true} muted={true}>
-                <source src="/Motion/JunkLikeAChef-Intro.mp4" type="video/webm" /> Your browser does not support the video tag.
-            </video>
+            <HoverVideo onClick={()=>setActivePopup("junk-chef")} videoSrc='/Motion/JunkLikeAChef-Intro.mp4' />
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/7vW-Intro.webm" type="video/webm" /> Your browser does not support the video tag.
             </video>
@@ -89,9 +122,7 @@ const MotionDesign: React.FC = () => {
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/IngameOutro.webm" type="video/webm" /> Your browser does not support the video tag.
             </video>
-            <video className='img-fluid' autoPlay loop={true} muted={true}>
-                <source src="/Motion/nightkitschen.webm" type="video/webm" /> Your browser does not support the video tag.
-            </video>
+            <HoverVideo onClick={()=>setActivePopup("night-kitchen")} videoSrc='/Motion/nightkitschen.webm' />
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/Breathing Meditation ｜ 3 rounds ｜ Guda Drum.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>
@@ -109,12 +140,7 @@ const MotionDesign: React.FC = () => {
         </Grid>
 
         <Grid containerClass={`m-2 ${getDisplayClass(Format.Portrait)}`} rowClass='row g-2' elementClass='col-6 col-md-4 col-lg-3'>
-            <a className='position-relative'>
-                <video className='img-fluid' autoPlay loop={true} muted={true}>
-                    <source src="/Motion/Machloket-Intro_1.mp4" type="video/webm" /> Your browser does not support the video tag.
-                </video>
-                <Image className="position-absolute" src='mehr-dazu-inactive.png' style={{width:"75px", bottom:"0", right:"0"}} />
-            </a>
+            <HoverVideo onClick={()=>setActivePopup("machloket")} videoSrc='/Motion/Machloket-Intro_1.mp4' />
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/animedetektei.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>
@@ -133,9 +159,7 @@ const MotionDesign: React.FC = () => {
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/trash.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>
-            <video className='img-fluid' autoPlay loop={true} muted={true}>
-                <source src="/Motion/Raetsel-Video-Sound-9-16-Folge17.mp4" type="video/webm" /> Your browser does not support the video tag.
-            </video>
+            <HoverVideo onClick={()=>setActivePopup("raetsel")} videoSrc='/Motion/Raetsel-Video-Sound-9-16-Folge17.mp4' />
             <video className='img-fluid' autoPlay loop={true} muted={true}>
                 <source src="/Motion/BF-QMOT-Intro-normal.mp4" type="video/webm" /> Your browser does not support the video tag.
             </video>

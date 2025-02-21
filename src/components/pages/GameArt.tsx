@@ -1,5 +1,5 @@
-import ImageGrid from '../ImageGrid';
-import {ImageLinkOverlayData} from '../ImageOverlay';
+import ImageGrid from 'components/ImageGrid';
+import {ImageLinkOverlayData} from 'components/ImageOverlay';
 
 const GameArt: React.FC = () => {
   const images:ImageLinkOverlayData[] = [

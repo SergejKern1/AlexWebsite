@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Menu from "./Menu";
-import {primaryMenuItems, secondaryMenuItems} from "../util/menuItems";
+import {primaryMenuItems, secondaryMenuItems} from "util/menuItems";
 import {Image} from "react-bootstrap";
-import { Spacing } from "../util/class-utils";
+import { Spacing } from "util/class-utils";
 
 const MenuMobile: React.FC = () => {
 

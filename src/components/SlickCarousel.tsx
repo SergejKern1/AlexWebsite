@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 
-import "./../css/slick-carousel.scss";
+import "css/slick-carousel.scss";
 
 export interface ImageData {
     src: string;

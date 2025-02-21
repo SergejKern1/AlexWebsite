@@ -110,7 +110,7 @@
 }
 
 .ic-indicators-container {
-    // background: rgba(0, 0, 0, 0.2);
+    background: rgba(0.5, 0.5, 0.5, 0.05);
     padding: 8px 12px;
     border-radius: 20px;
     display: flex;
@@ -121,8 +121,8 @@
     width: 20px;
     height: 7px;
     border-radius: 15px;
-    border: 2px solid rgba($primary, 0);
-    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba($primary, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
 

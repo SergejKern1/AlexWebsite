@@ -1,12 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
-import InfiniteCarousel from "../InfiniteCarousel";
-import CustomerCard from "../CustomerCard";
+// import { Link, NavLink } from "react-router-dom";
+import InfiniteCarousel from "components/InfiniteCarousel";
+import CustomerCard from "components/CustomerCard";
 
 const Kunden : React.FC = () => {
     return (
         <div className="carousel-container-row"> 
             <InfiniteCarousel autoPlayVelocity={-1} debugName="Kunden">
-                <img className="p-2" src="/text/kunden.png" />
+                <img className="px-2" src="/text/kunden.png" />
                 <div className="fl-col-g3">
                     <div className="fl-j-between-al-i-center-g-2">
                         <CustomerCard 
@@ -22,7 +22,7 @@ const Kunden : React.FC = () => {
                             cstmrReviewText="Die Zusammenarbeit mit Alexandra war sehr angenehm. Sie hat meine Webseite und mein Corporate Design mit Kreativität und Liebe zum Detail auf ein neues Level gebracht. Besonders beeindruckend: Ihr Gespür für Ästhetik und ihre Vielseitigkeit – egal ob Game Dev oder App-Design, sie liefert top Ergebnisse. Absolute Empfehlung! 🙌✨" 
                             cstmrProfileImagePath="Kunden/sergejkern-foto.png" />
                     </div>
-                    <div className="p-5 fl-j-between-al-i-center-g-2">
+                    <div className="px-5 fl-j-between-al-i-center-g-2">
                         <img src="/Kunden/logo-buzzfeed.png" className="kunden-icn" />
                         <img src="/Kunden/Logo-Dark-8.png" className="kunden-icn" />
                         <img src="/Kunden/logo-elayn.png" className="kunden-icn" />

@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
 import {Image} from "react-bootstrap";
 import clsx from 'clsx';
-import "./../css/image-carousel.scss";
+import "css/image-carousel.scss";
+
+export interface ImageData {
+  src: string; 
+  alt?: string;
+}
 
 interface ImageCarouselProps {
   id: string;
-  imgs: { src: string; alt?: string }[];
+  className?: string;
+  imgs: ImageData[];
   previewCount?: number;
   height?: number;
   activeIndex?: number;
   onSelect?: (index: number) => void;
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ id, imgs, height = 400, previewCount = 2, activeIndex = 0, onSelect }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ id, className, imgs, height = 400, previewCount = 2, activeIndex = 0, onSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(activeIndex);
   
   useEffect(() => {
@@ -38,7 +44,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ id, imgs, height = 400, p
   };
 
   return (
-    <div id={id} className="ic-carousel-container" style={{height:height+50}}>
+    <div id={id} className={clsx("ic-carousel-container", className)} style={{height:height+50}}>
       <div className="ic-carousel-track" style={{height:height}}>
         {imgs.map((img, index) => {
             // console.log("index preIdx(1)", index, preIdx(1));

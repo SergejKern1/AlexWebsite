@@ -1,87 +1,87 @@
-import {Container, Row, Col, Form, Button, Image} from "react-bootstrap";
-import { loremIpsumText } from "../../util/loremIpsum";
-import { Spacing } from "../../util/class-utils";
+import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
+import { loremIpsumText } from "util/loremIpsum";
+import { Spacing } from "util/class-utils";
 
 const AboutMe: React.FC = () => {
   return (
     <div className="overflow-hidden">
-        <Container id="about-me">
-          <Spacing top={50} />
-          <div className="fl-j-center-al-i-center">
-            <p className="d-block-mx-auto col-primary">
-              "Die größte Inspiration und Ruhe<br/>
-              finde ich in der Natur. <br/>
-              und ihrer undenlichen Vielfalt." 
+      <Container id="about-me">
+        <Spacing top={50} />
+        <div className="fl-j-center-al-i-center">
+          <p className="mx-autoblock mw-400px" style={{ fontFamily: 'verdana', textAlign: 'center', fontSize: '18pt' }}>
+            "Die größte Inspiration und Ruhe
+            finde ich in der Natur
+            und ihrer undenlichen Vielfalt."
+          </p>
+        </div>
+        <Spacing top={50} />
+
+      </Container>
+
+      <Container fluid className="p-0">
+        <Row className="m-0 p-0">
+          <Col xs={6} sm={6} md={4} className="p-0"><Image fluid src="/About/Alex-foto.jpg" style={{ height: '100%', objectFit:'cover'}}/></Col>
+          <Col xs={6} sm={6} md={8} className="p-4 fl-col-j-center-al-i-center" style={{ color: "white", backgroundColor: "var(--primary)" }}>
+            <div className="mx-autoblock">
+              <p className="d-block mw-400px custom-column-txt" style={{ fontFamily: 'verdana' }}>
+                Schön, dass du hergefunden hast!
+                <br/> <br/>
+                Wenn du nach
+                Illustrationen und
+                Designs mit Liebe zum Detail
+                suchst, dann bist du bei mir
+                genau richtig.
+              </p>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="mw-800px p-0">
+        <Row className="p-4 custom-column-txt">
+          <Col xs={12} md={6} className="mx-autoblock m-4">
+            <p className="col-primary"><b>Bio</b></p>
+            <p className="d-block">
+              Ich bin Designerin mit mehrjähriger Agenturerfahrung als auch in der Projektbetreuung als Selbstständige.
+              Meine Schwerpunkte sind das Entwickeln einer einheitlichen Corporate Identity, Motion Design sowie das Gestalten eines User Interface und User Experience für Apps und Websites.
             </p>
-          </div>
-          <Spacing top={50} />
+            <p className="d-block">
+              Als Illustratorin liebe ich es Charaktere zum Leben zu erwecken und eine Welt um sie herum entstehen zu lassen, indem ich den Fokus auf harmonische Farben und Details lege.
+            </p>
+          </Col>
 
-        </Container>
-
-        <Row className="m-0 p-0"> 
-            <Col xs={12} md={6} className="p-0"><Image fluid src="/About/Alex-foto.jpg" /></Col>
-            <Col xs={12} md={6} className="p-4 fl-col-j-center-al-i-center" style={{color:"white", backgroundColor: "var(--primary)"}}>
-              <div className="d-block-mx-auto">
-                <p className="d-block">
-                  Schön, dass du<br/>
-                  hergefunden hast!
-                </p>
-                <p className="d-block">
-                  Wenn du nach<br/>
-                  Illustrationen und<br/>
-                  Designs mit Liebe zum Detail<br/>
-                  suchst, dann bist du bei mir<br/>
-                  genau richtig.
-                </p>
-              </div>
-            </Col>
+          <Col xs={12} md={6} className="mx-autoblock m-4">
+            <p className="col-primary"><b>Work</b></p>
+            <p className="d-block">
+              Bei meiner Arbeit ist es mir besonders wichtig mir ausreichend Zeit für dich und den Prozess zu nehmen, damit du dich während unserer Zusammen-arbeit gut aufgehoben und professionell beraten fühlst. 
+              In der Ruhe und Planung liegt die Kraft um zu einem Ergebnis zu gelangen das mit dir resoniert.
+            </p>
+            <p className="col-primary"><b>Werte</b></p>
+            <p className="d-block">
+              Da mir unser Planet sehr am Herzen liegt, möchte ich zukunftsorientierte Projekte unterstützen denen Soziales Allgemeinwohl und Nachhaltigkeit am Herzen liegt.
+            </p>
+          </Col>
         </Row>
-        <Row className="m-2 p-2 custom-column-txt"> 
-            <Col xs={12} md={6} className="d-block-mx-auto m-4">
-              <p className="col-primary"><b>Bio</b></p>
-              <p className="d-block">
-                Ich bin Designerin mit mehrjähriger<br/>
-                Agenturerfahrung, dabei liegt mein<br/>
-                Schwerpunkt auf Corporate & Motion<br/>
-                Design sowie UI Design für Spiele<br/>
-                und Apps.
-              </p>
-              <p className="d-block">
-                Als Illustratorin gefällt mir<br/>
-                besonders das Entwickeln von Charak-<br/>
-                teren mit Fokus auf harmonischen<br/>
-                Farben um Geschichten zu erzählen.
-              </p>
-            </Col>
+      </Container>
 
-            <Col xs={12} md={6} className="d-block-mx-auto m-4">
-              <p className="col-primary"><b>Work</b></p>
-              <p className="d-block">
-                Bei meiner Arbeit ist es mir besonders<br/>
-                wichtig mir Zeit für dich und den Proz-<br/>
-                ess zu nehmen, damit du dich während des<br/>
-                gesamten Projekts gut aufgehoben<br/>
-                fühlst und wir zu einem Ergebnis<br/>
-                kommen, das mit dir resoniert.
-              </p>
-              <p className="col-primary"><b>Don'ts</b></p>
-              <p className="d-block">
-                Da mir der Planet sehr am Herzen liegt,<br/>
-                möchte ich nicht für Firmen arbeiten,<br/>
-                denen Soziales Gemeinwohl und Nach-<br/>
-                haltigkeit egal sind. 
-              </p>
-            </Col>
-        </Row>
-
-        <Row>
+      <Container className="mw-800px ">
+        <Row className="custom-column-txt p-4">
           Kontakt
+          <br/>
           {loremIpsumText}
-          Alexandra
+          <Spacing top={20} />
+
+          <Button className="mx-auto" variant="primary" type="submit" style={{width:'200px'}}>
+            Jetzt Termin buchen!
+          </Button>
         </Row>
-        <Row id="contact">
-          <h4 className="col-primary">Reach out!</h4>
-          <Form>
+        <Spacing top={20} />
+
+        <Row id="contact" className="p-4">
+          <h4 className="col-primary p-0">Reach out!</h4>
+          <Spacing top={20} />
+
+          <Form className="p-0">
             <Form.Group className="mb-3" controlId="form-name">
               <Form.Label>Name</Form.Label>
               <Form.Control placeholder="Max Muster" />
@@ -97,14 +97,18 @@ const AboutMe: React.FC = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="form-message">
               <Form.Label>Message</Form.Label>
-              <textarea className="form-control" id="form-message" rows={3}></textarea>
+              <textarea className="form-control" id="form-message" rows={6}></textarea>
             </Form.Group>
-            
+
             <Button variant="primary" type="submit">
               Absenden
             </Button>
           </Form >
+          <Spacing top={50} />
+
         </Row>
+      </Container>
+
     </div>
   );
 }
