@@ -1,14 +1,39 @@
+import { useState } from 'react';
+
 import ImageGrid from 'components/ImageGrid';
 import {ImageLinkOverlayData} from 'components/ImageOverlay';
+import Popup from 'components/Popup';
+import IntoTheCold from './GameArt/IntoTheCold';
+import Pitrush from './GameArt/Pitrush';
+import Okjo from './GameArt/Okjo';
 
 const GameArt: React.FC = () => {
+  const [activePopup, setActivePopup] = useState<string | null>(null);
   const images:ImageLinkOverlayData[] = [
-    {src: "/GameArt/cover-intothecold.png", href:"game-art/into-the-cold", hoverTitle: "Into the cold", hoverSubtitle:'Mooneye Studios'},
-    {src: "/GameArt/cover-ptrush.jpg", href:"game-art/pitrush", hoverTitle: "Pitrush", hoverSubtitle: "The Tribe", hoverText: "Studentenprojekt HAW Hamburg"},
-    {src: "/GameArt/Okjo_thumbnail-768x768.jpg", href:"game-art/okjo", hoverTitle: "Okjo", hoverSubtitle: "Mindsprout Games", hoverText: ""},
+    {src: "/GameArt/cover-intothecold.png", 
+      href:"#into-the-cold", 
+      onClick: ()=> setActivePopup('into-the-cold'),
+      hoverTitle: "Into the cold", hoverSubtitle:'Mooneye Studios'},
+
+    {src: "/GameArt/cover-ptrush.jpg", 
+      href:"#pitrush", 
+      onClick: ()=> setActivePopup('pitrush'),
+      hoverTitle: "Pitrush", hoverSubtitle: "The Tribe", hoverText: "Studentenprojekt HAW Hamburg"},
+    {src: "/GameArt/Okjo_thumbnail-768x768.jpg", 
+      onClick: ()=> setActivePopup('okjo'),
+      href:"#okjo", 
+      hoverTitle: "Okjo", hoverSubtitle: "Mindsprout Games", hoverText: ""},
   ];
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden">      
+      { activePopup && 
+        <Popup onClose={() => setActivePopup(null)} >
+          {activePopup === "into-the-cold" && <IntoTheCold/>}
+          {activePopup === "pitrush" && <Pitrush/>}
+          {activePopup === "okjo" && <Okjo/>}
+        </Popup>
+      }
+
       <ImageGrid colClass='col-4 p-0' gridItems={images}></ImageGrid>
     </div>
   );

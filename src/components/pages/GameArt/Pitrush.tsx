@@ -7,10 +7,10 @@ import {Title, Subtitle} from "util/class-utils.tsx";
 const Pitrush: React.FC = () => {
   return (
     <div className="overflow-hidden">
-        <Container>
-          <Title>Pitrush</Title>
-          <Subtitle>The Tribe (HAW)</Subtitle>
-        </Container>
+      <Container>
+        <Title>Pitrush</Title>
+        <Subtitle>The Tribe (HAW)</Subtitle>
+      </Container>
     </div>
   );
 }
