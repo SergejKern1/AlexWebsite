@@ -11,6 +11,7 @@ const GameArt: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
   const images:ImageLinkOverlayData[] = [
     {src: "/GameArt/cover-intothecold.png", 
+      className: "w-100",
       href:"#into-the-cold", 
       onClick: ()=> setActivePopup('into-the-cold'),
       hoverTitle: "Into the cold", hoverSubtitle:'Mooneye Studios'},

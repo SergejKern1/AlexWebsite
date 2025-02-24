@@ -90,7 +90,7 @@
     width:338px;
 }
 
-.overlay {
+.full-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -99,7 +99,7 @@
 }
 .gallery-overlay
 {
-    @extend .overlay;
+    @extend .full-overlay;
 
     background-color: rgba(0,0,0,0.8);
     z-index: 1000;
@@ -110,7 +110,7 @@
 
 .gallery-close-bg
 {
-    @extend .overlay;
+    @extend .full-overlay;
 }
 
 .custom-column-txt {

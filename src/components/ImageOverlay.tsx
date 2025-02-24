@@ -16,7 +16,7 @@ export interface ImageLinkOverlayData {
 const ImageOverlay: React.FC<ImageLinkOverlayData> = ({ id, className, style, src, href, onClick, hoverTitle, hoverSubtitle, hoverText, ...rest}) => {
     const imgInner = () => {
         return (
-            <div>
+            <div className={className}>
                 <Image fluid src={src} alt={`Image ${hoverTitle?hoverTitle:src}`} 
                     className="w-100 p-0" />
                 {hoverTitle && (

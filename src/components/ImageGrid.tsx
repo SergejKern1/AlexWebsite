@@ -14,7 +14,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ colClass = '', gridItems}) => {
         elementClass={colClass}>
         {gridItems.map((gridItem, index) => (
             <div key={index} className={`w-100 ${gridItem.hoverTitle ? 'img-hover-container':''}`}>
-                <ImageOverlay src = {gridItem.src}
+                <ImageOverlay src = {gridItem.src} 
+                  className={gridItem.className}
                   href={gridItem.href}
                   onClick={gridItem.onClick}
                   hoverTitle={gridItem.hoverTitle}

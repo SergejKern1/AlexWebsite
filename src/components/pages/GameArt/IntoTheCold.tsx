@@ -11,7 +11,7 @@ const IntoTheCold: React.FC = () => {
   return (
     <div className="overflow-hidden">
         <div style={lazyPlaceholder(1500, 337)}>
-            <Image fluid src="/IntoTheCold/header-intothecold.jpg" style={{width: '100%'}} loading="lazy"/>
+            <Image fluid src="/GameArt/IntoTheCold/header-intothecold.jpg" style={{width: '100%'}} loading="lazy"/>
         </div>
         <Spacing top={50}/>
         <Container className="mw-800px">
@@ -27,18 +27,18 @@ const IntoTheCold: React.FC = () => {
         <Container className="mw-800px">
           <div style={{padding:'2px'}}>
             <Image fluid
-              src="/IntoTheCold/SamExpressions.jpg" loading="lazy"/>
+              src="/GameArt/IntoTheCold/SamExpressions.jpg" loading="lazy"/>
           </div>
 
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/samcolorvriation.jpg"},
-              {src: "/IntoTheCold/SamUmiak.jpg"},
+              {src: "/GameArt/IntoTheCold/samcolorvriation.jpg"},
+              {src: "/GameArt/IntoTheCold/SamUmiak.jpg"},
             ]}
           />
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/IntoTheCold_1.png"},
-              {src: "/IntoTheCold/IntoTheCold_2.png"},
-              {src: "/IntoTheCold/IntoTheCold_3.png"},
+              {src: "/GameArt/IntoTheCold/IntoTheCold_1.png"},
+              {src: "/GameArt/IntoTheCold/IntoTheCold_2.png"},
+              {src: "/GameArt/IntoTheCold/IntoTheCold_3.png"},
             ]}
           />
         </Container>
@@ -51,10 +51,10 @@ const IntoTheCold: React.FC = () => {
         <Spacing top={50} />
         <Container className="mw-800px">
           <video className='img-fluid' autoPlay loop={true} muted={true}>
-            <source src={"/IntoTheCold/Ellie-msculpt01.mov" } type="video/webm" /> Your browser does not support the video tag.
+            <source src={"/GameArt/IntoTheCold/Ellie-msculpt01.mov" } type="video/webm" /> Your browser does not support the video tag.
           </video>
           <video className='img-fluid' autoPlay loop={true} muted={true}>
-            <source src={"/IntoTheCold/Sam-sculpt.mov" } type="video/webm" /> Your browser does not support the video tag.
+            <source src={"/GameArt/IntoTheCold/Sam-sculpt.mov" } type="video/webm" /> Your browser does not support the video tag.
           </video>
         </Container>
         <Container className="mw-600px">
@@ -69,24 +69,24 @@ const IntoTheCold: React.FC = () => {
         <Container className="mw-800px">
           <div style={{padding:'2px'}}>
             <Image fluid
-              src="/IntoTheCold/Icestructure.jpg" loading="lazy"/>
+              src="/GameArt/IntoTheCold/Icestructure.jpg" loading="lazy"/>
           </div>
 
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/iceandclouds.jpg"},
-              {src: "/IntoTheCold/IceBahn.jpg"},
+              {src: "/GameArt/IntoTheCold/iceandclouds.jpg"},
+              {src: "/GameArt/IntoTheCold/IceBahn.jpg"},
             ]}
           />
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/Sledgepiste.jpg"},
-              {src: "/IntoTheCold/WaterfallCanyon.jpg"},
-              {src: "/IntoTheCold/WhalesUnderneath.jpg"},
+              {src: "/GameArt/IntoTheCold/Sledgepiste.jpg"},
+              {src: "/GameArt/IntoTheCold/WaterfallCanyon.jpg"},
+              {src: "/GameArt/IntoTheCold/WhalesUnderneath.jpg"},
             ]}
           />
           <ImageRow padding={2} rowItems={[
               // {src: "/"},
               // {src: "/"},
-              {src: "/IntoTheCold/BlueGlacier.jpg"},
+              {src: "/GameArt/IntoTheCold/BlueGlacier.jpg"},
             ]}
           />
         </Container>
@@ -100,13 +100,13 @@ const IntoTheCold: React.FC = () => {
 
         <Container className="mw-800px">
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/boxes.jpg"},
-              {src: "/IntoTheCold/DittyBag.jpg"},
+              {src: "/GameArt/IntoTheCold/boxes.jpg"},
+              {src: "/GameArt/IntoTheCold/DittyBag.jpg"},
             ]}
           />
           <ImageRow padding={2} rowItems={[
-              {src: "/IntoTheCold/flasks.jpg"},
-              {src: "/IntoTheCold/Kanus.jpg"},
+              {src: "/GameArt/IntoTheCold/flasks.jpg"},
+              {src: "/GameArt/IntoTheCold/Kanus.jpg"},
             ]}
           />
         </Container>

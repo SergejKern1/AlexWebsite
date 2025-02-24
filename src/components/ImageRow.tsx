@@ -71,8 +71,8 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, padding=0, onClick, child
                 return;
         
             const containerWidth = containerRef.current.offsetWidth;
-            const totalOriginalWidth = imageWidths.reduce((acc, width) => acc + width + padding, 0) - 5*padding; // i dont know why 5*padding
-            const scaleFactor = containerWidth / totalOriginalWidth;
+            const totalOriginalWidth = imageWidths.reduce((acc, width) => acc + width, 0) + (imageWidths.length-1) * padding;
+            const scaleFactor = (containerWidth) / totalOriginalWidth;
             console.log('scaleFactor', scaleFactor);
 
             const newScaledWidths = imageWidths.map((width) => width * scaleFactor);
@@ -92,19 +92,23 @@ const ImageRow: React.FC<ImageRowProps> = ({ rowItems, padding=0, onClick, child
     const childrenArray = children ? React.Children.toArray(children) : null;
     
     return (
-      <div ref={containerRef} className="image-row-container fl-nowrap" style={{margin: padding}} >
+      <div ref={containerRef} className="image-row-container fl-nowrap" style={{gap: padding+'px'}}>
         {childrenArray ? childrenArray.map((child, index) => (
             <div key={index}
             style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto" }} // Apply scaled width
             > {child} </div>
         )) :
         rowItems.map((gridItem, index) => (
-            <img key={index}
-              src={gridItem.src}
-              alt={`Image ${index + 1}`}
-              style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto", paddingRight: padding, objectFit: 'cover' }} // Apply scaled width
-              onClick={() => onClick && onClick(gridItem.src)}
+            <div key={index}
+                style={{ width: scaledImageWidths[index] || "auto", height: scaledImageHeight || "auto"}} // Apply scaled width
+            >
+            <img className="img-fluid"
+                src={gridItem.src}
+                alt={`Image ${index + 1}`}
+                onClick={() => onClick && onClick(gridItem.src)}
+                style={{ objectFit: 'cover' }} // Apply scaled width
             />
+            </div>
         ))}
       </div>
     );
